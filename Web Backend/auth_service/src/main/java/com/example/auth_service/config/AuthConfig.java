@@ -37,7 +37,7 @@ public class AuthConfig {
         public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
             Object AbstractHttpConfigurer;
             return http
-                    .csrf(AbstractHttpConfigurer::disable)
+                    .csrf(csrf -> csrf.disable())
                     .authorizeHttpRequests(auth -> auth
                             .requestMatchers(WHITE_LIST_URL).permitAll()
                             .requestMatchers("/auth/**", "/admin/**").permitAll()
