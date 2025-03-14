@@ -27,7 +27,7 @@ public class productController {
         return product != null ? ResponseEntity.ok(product) : ResponseEntity.status(HttpStatus.NOT_FOUND).build();
     }
 
-    @GetMapping("/product")
+    @GetMapping("/products")
     public ResponseEntity<List<productDTO>> getAllProducts() {
         return ResponseEntity.ok(service.getAllProductsWithoutImage());
     }
