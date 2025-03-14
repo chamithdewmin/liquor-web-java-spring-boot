@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: liquor_service  # Adjusted service name to follow lowercase format
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8081
