@@ -3,6 +3,7 @@ package com.example.liquor.controller;
 import com.example.liquor.dto.productDTO;
 import com.example.liquor.model.product;
 import com.example.liquor.service.ProductService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -43,9 +44,14 @@ public class productController {
                 .body(product.getImageData());
     }
 
-    @PostMapping("/product")
-    public ResponseEntity<String> addProduct(@RequestPart product product, @RequestPart MultipartFile imageFile) {
+    @PostMapping(value = "/product", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<String> addProduct(@RequestPart("product") String productJson,
+                                             @RequestPart("imageFile") MultipartFile imageFile) {
         try {
+            // Convert JSON string to Product object
+            ObjectMapper objectMapper = new ObjectMapper();
+            product product = objectMapper.readValue(productJson, product.class);
+
             String result = service.addProduct(product, imageFile);
             return ResponseEntity.status(HttpStatus.CREATED).body(result);
         } catch (Exception e) {
@@ -54,8 +60,13 @@ public class productController {
     }
 
     @PutMapping("/product/{id}")
-    public ResponseEntity<String> updateProduct(@PathVariable int id, @RequestPart product product, @RequestPart MultipartFile imageFile) {
+    public ResponseEntity<String> updateProduct(@PathVariable int id, @RequestPart("product") String productJson, @RequestPart(value = "imageFile", required = false) MultipartFile imageFile) {
         try {
+
+            // Convert JSON string to Product object
+            ObjectMapper objectMapper = new ObjectMapper();
+            product product = objectMapper.readValue(productJson, product.class);
+
             product updatedProduct = service.updateProduct(id, product, imageFile);
             if (updatedProduct == null) {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Product not found");
