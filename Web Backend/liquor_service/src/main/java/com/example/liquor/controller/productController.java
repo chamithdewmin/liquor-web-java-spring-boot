@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RestController
-@RequestMapping("/food")
+@RequestMapping("/bottle")
 public class productController {
 
     private final ProductService service;

@@ -3,7 +3,7 @@ package com.example.liquor.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "bottles") // Ensure it matches your database table
+@Table(name = "bottles") // Database table name
 
 public class product {
 

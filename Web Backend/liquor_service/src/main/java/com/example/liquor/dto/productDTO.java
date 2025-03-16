@@ -13,8 +13,6 @@ public class productDTO {
     private String imageName;
     private String imageType;
 
-    public productDTO() {
-    }
 
     public productDTO(int id, String name, String description, String category, double price, int volume, double alcoholPercentage, String brand, String imageName, String imageType) {
         this.id = id;
