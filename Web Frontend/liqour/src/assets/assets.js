@@ -110,7 +110,7 @@ export const menu_list = [
     menu_image: menu_6,
   },
   {
-    menu_name: "Cordial",
+    menu_name: "Beer",
     menu_image: menu_7,
   },
   {

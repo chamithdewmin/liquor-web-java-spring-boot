@@ -60,11 +60,11 @@
   margin: 10px 0px;
   height: 2px;
   background-color: #e2e2e2;
-  border: none;
+  border: none; 
 }
 
 .explore-menu-list-item .active {
-  border: 4px solid #64bf47;
+  border: 4px solid #ffb400; 
 }
 @media (max-width: 1050px) {
   .explore-menu-text {
@@ -73,5 +73,5 @@
   }
 }
 .explore-menu-list-item .active-name {
-  color: #64bf47;
+  color: #ffb400; 
 }

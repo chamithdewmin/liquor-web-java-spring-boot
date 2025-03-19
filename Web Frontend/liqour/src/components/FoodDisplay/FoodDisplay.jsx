@@ -15,7 +15,7 @@ const FoodDisplay = ({ category }) => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        let newUrl = url + "/food/products";
+        let newUrl = url + "/bottle/products";
         const response = await axios.get(newUrl);
         fetchProductsImages(response.data);
         setProducts(response.data);
@@ -27,7 +27,7 @@ const FoodDisplay = ({ category }) => {
 
     const fetchProductsImages = (products) => {
       products.forEach((product) => {
-        let newUrl = url + `/food/product/${product.id}/image`;
+        let newUrl = url + `/bottle/product/${product.id}/image`;
         axios
           .get(newUrl, {
             responseType: "blob",
