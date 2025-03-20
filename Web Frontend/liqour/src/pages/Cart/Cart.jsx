@@ -33,10 +33,10 @@ const Cart = () => {
       const updatedCartItems = await Promise.all(
         cartProducts.map(async (product) => {
           const productResponse = await axios.get(
-            `${url}/food/product/${product.productId}`
+            `${url}/bottle/product/${product.productId}`
           );
           const productImageResponse = await axios.get(
-            `${url}/food/product/${product.productId}/image`,
+            `${url}/bottle/product/${product.productId}/image`,
             { responseType: "blob" }
           );
           const imageUrl = URL.createObjectURL(productImageResponse.data);
