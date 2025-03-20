@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/bottle")
 public class productController {
 
@@ -30,7 +31,7 @@ public class productController {
 
     @GetMapping("/products")
     public ResponseEntity<List<productDTO>> getAllProducts() {
-        return ResponseEntity.ok(service.getAllProductsWithoutImage());
+        return new ResponseEntity<>(service.getAllProductsWithoutImage(), HttpStatus.OK);
     }
 
     @GetMapping("/product/{id}/image")

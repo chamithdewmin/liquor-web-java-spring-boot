@@ -18,6 +18,7 @@ const FoodDisplay = ({ category }) => {
         let newUrl = url + "/bottle/products";
         const response = await axios.get(newUrl);
         fetchProductsImages(response.data);
+        console.log(response.data);
         setProducts(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -51,7 +52,7 @@ const FoodDisplay = ({ category }) => {
   if (isLoading) {
     return (
       <div className="food-display" id="food-display">
-        <h2>Top dishes near you</h2>
+        <h2>Stock Bottles</h2>
         <div className="food-display-list">
           <SkeletonCard />
           <SkeletonCard />
@@ -64,7 +65,7 @@ const FoodDisplay = ({ category }) => {
 
   return (
     <div className="food-display" id="food-display">
-      <h2>Top dishes near you</h2>
+      <h2>Choose Your Bottle</h2>
       <div className="food-display-list">
         {products.map((product) => {
           if (category == "All" || product.category == category) {

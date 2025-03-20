@@ -14,10 +14,8 @@ public class product {
     private String name;
     private String description;
     private String category;
+    private int volume;
     private double price;
-    private int volume; // Bottle size in ml
-    private double alcoholPercentage; // Alcohol percentage
-    private String brand;
 
     private String imageName;
     private String imageType;
@@ -28,15 +26,13 @@ public class product {
     public product() {
     }
 
-    public product(int id, String name, String description, String category, double price, int volume, double alcoholPercentage, String brand, String imageName, String imageType, byte[] imageData) {
+    public product(int id, String name, String description, String category, double price, int volume, String imageName, String imageType, byte[] imageData) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.category = category;
         this.price = price;
         this.volume = volume;
-        this.alcoholPercentage = alcoholPercentage;
-        this.brand = brand;
         this.imageName = imageName;
         this.imageType = imageType;
         this.imageData = imageData;
@@ -88,22 +84,6 @@ public class product {
 
     public void setVolume(int volume) {
         this.volume = volume;
-    }
-
-    public double getAlcoholPercentage() {
-        return alcoholPercentage;
-    }
-
-    public void setAlcoholPercentage(double alcoholPercentage) {
-        this.alcoholPercentage = alcoholPercentage;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
     }
 
     public String getImageName() {

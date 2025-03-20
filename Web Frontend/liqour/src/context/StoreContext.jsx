@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { food_list } from "../assets/assets";
+import { drink_list } from "../assets/assets";
 import axios from "axios";
 import { Snackbar, Alert } from "@mui/material";
 import AlertDialogSlide from "../components/AlertDialog/AlertDialog";
@@ -12,7 +12,7 @@ const StoreContextProvider = (props) => {
   });
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [userId, setUserId] = useState(localStorage.getItem("userId") || "");
-  const url = "http://localhost:8080";
+  const url = "http://localhost:8081";
 
   const [orderDetails, setOrderDetails] = useState([]);
 
@@ -98,7 +98,7 @@ const StoreContextProvider = (props) => {
   }, [token, userId]);
 
   const contextValue = {
-    food_list,
+    drink_list,
     cartDetails,
     setCartDetails,
     addToCart,
