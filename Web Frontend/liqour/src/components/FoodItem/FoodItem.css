@@ -81,10 +81,10 @@
 
 .food-item-button-container button:hover {
   scale: 1.1;
-}
+} 
 
 .food-item-add-to-cart {
-  background: #64bf47;
+  background: #ffb400;
   color: white;
   padding: 10px 18px;
   border: none;
@@ -98,5 +98,5 @@
 }
 
 .food-item-add-to-cart:hover {
-  background: #4a9e37;
+  background: rgb(153, 117, 0);
 }

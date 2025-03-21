@@ -42,7 +42,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
         <img src={assets.rating_starts} alt="" />
         <p className="food-item-desc">{description}</p>
         <div className="food-item-actions">
-          <p className="food-item-price">${price}.00</p>
+          <p className="food-item-price">Rs: {price}.00</p>
           <button onClick={handleCart} className="food-item-add-to-cart">
             Add to cart
           </button>
