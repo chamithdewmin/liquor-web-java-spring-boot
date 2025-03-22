@@ -23,11 +23,6 @@ public class AuthController {
     @Autowired
     private AuthenticationManager authenticationManager;
 
-    @GetMapping("/greet")
-    public String greet(){
-        return "Hello";
-    }
-
     @PostMapping("/register")
     public ResponseEntity<?> saveUser(@RequestBody UserCredential userCredential) {
         try {
