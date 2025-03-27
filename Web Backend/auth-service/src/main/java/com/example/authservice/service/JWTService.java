@@ -68,7 +68,7 @@ public class JWTService {
     }
 
     private PublicKey getSignKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(KEY);
+        byte[] keyBytes = Decoders.BASE64.decode(KEY); //convert string value into byte
         return (PublicKey) Keys.hmacShaKeyFor(keyBytes);
 
     }

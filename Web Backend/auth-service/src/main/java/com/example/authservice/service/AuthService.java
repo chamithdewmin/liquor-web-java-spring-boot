@@ -25,6 +25,7 @@ public class AuthService {
         }
         userCredential.setPassword(passwordEncoder.encode(userCredential.getPassword()));
         userCredentialRepository.save(userCredential);
+
     }
 
 

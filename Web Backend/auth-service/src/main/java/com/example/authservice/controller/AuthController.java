@@ -45,6 +45,9 @@ public class AuthController {
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest authRequest) {
         try {
+            System.out.println("Username: " + authRequest.getUsername());
+            System.out.println("Password: " + authRequest.getPassword());
+
             Authentication authenticate = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
                             authRequest.getUsername(),
@@ -69,6 +72,7 @@ public class AuthController {
                         ));
             }
         } catch (Exception e) {
+            System.out.println("Error:" +e.getMessage());
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body(Map.of(
                             "success", false,
