@@ -1,5 +1,5 @@
 server:
-  port: 8081  # Change for each microservice
+  port: 8083  # Change for each microservice
 
 eureka:
   client:
@@ -10,4 +10,4 @@ eureka:
 
 spring:
   application:
-    name: liqour-service  # Change for each service
+    name: payment-service  # Change for each service

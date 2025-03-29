@@ -1,55 +1,37 @@
-
 spring:
+  application:
+    name: api-gateway
   cloud:
     gateway:
       routes:
-        - id: auth-service
-          uri: lb://AUTH-SERVICE
+        - id: authentication-service
+          uri: lb://authentication-service
           predicates:
-            - Path=/auth/**,/admin/**
+            - Path=/auth/**
 
-        - id: liqour-service
-          uri: lb://LIQOUR-SERVICE
+        - id: liquor-service
+          uri: lb://liquor-service
           predicates:
-            - Path=/food/**
-          filters:
-            - AuthenticationFilter
+            - Path=/liquor/**
 
-        - id: order-service
-          uri: lb://ORDER-SERVICE
+        - id: inventory-service
+          uri: lb://inventory-service
           predicates:
-            - Path=/cart/** , /orders/**
-          filters:
-            - AuthenticationFilter
+            - Path=/inventory/**
 
         - id: payment-service
-          uri: lb://PAYMENT-SERVICE
+          uri: lb://payment-service
           predicates:
-            - Path=/payments/**
-          filters:
-            - AuthenticationFilter
+            - Path=/payment/**
 
-      globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins:
-              - "http://localhost:5173"
-              - "http://localhost:5174"
-            allowedMethods:
-              - GET
-              - POST
-              - PUT
-              - DELETE
-              - OPTIONS
-              - PATCH
-            allowedHeaders:
-              - "*"
-            allowCredentials: true
-  application:
-    name: API-GATEWAY
+        - id: order-service
+          uri: lb://order-service
+          predicates:
+            - Path=/order/**
 
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka/
-
+        - id: notification-service
+          uri: lb://notification-service
+          predicates:
+            - Path=/notification/**
+server:
+  port: 8761

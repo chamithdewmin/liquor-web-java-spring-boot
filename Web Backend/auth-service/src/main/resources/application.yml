@@ -1,9 +1,13 @@
+server:
+  port: 8082  # Change for each microservice
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
 spring:
   application:
-    name: AUTH-SERVICE
-  eureka:
-    client:
-      service-url:
-        defaultZone: http://localhost:8761/eureka/
-server:
-  port: 8084
+    name: auth-service  # Change for each service
